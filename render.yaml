@@ -1,0 +1,13 @@
+hereservices:
+  - type: web
+    name: openclaw-tg-proxy
+    runtime: node
+    plan: free
+    buildCommand: echo "no build step"
+    startCommand: node server.mjs
+    healthCheckPath: /health
+    envVars:
+      - key: PROXY_SECRET
+        sync: false   # Isi manual di Render Dashboard → Secret
+      - key: NODE_ENV
+        value: production
